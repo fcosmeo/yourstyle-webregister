@@ -1,0 +1,76 @@
+body{
+    background-color: white;
+}
+
+#form-person label{
+  margin-top: 10px;
+}
+
+.form_gen{
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color:white;
+    border-color:darkgrey;
+    height: 484px;
+    width: 700px;
+    border-style: solid;
+}
+
+.form_gen_left{
+    overflow: hidden;
+    float: left;
+    height: 478px;
+    width: 347px;
+    background-color: darkgreen;
+}
+
+.form_gen_right{
+    float: right;
+    height: 478px;
+    width: 330px;
+    text-align: center;
+}
+
+.form_gen_right_top{
+    background-color: white;
+    padding-top: 4px;
+    text-align: center;
+    height: 76px;
+    width: 300px;
+    overflow: hidden;
+}
+
+.form_gen_right_body{
+    background-color: gainsboro;
+    width: 315px;
+}
+
+@media (max-width: 700px) {
+    .form_gen{
+        margin: auto;
+        overflow: visible;
+        border-radius: 20px;
+        background-color:white;
+        border-color:darkgrey;
+        height: 484px;
+        width: 350px;
+        border-style: solid;
+    }
+    .form_gen_left{
+        overflow: hidden;
+        float: right;
+        height: 478px;
+        width: 0px;
+        background-color: darkgreen;
+        visibility: hidden;
+    }
+
+    .form_gen_right{
+        float: left;
+        height: 478px;
+        width: 330px;
+        text-align: center;
+        padding-left: 15px;
+    }
+}

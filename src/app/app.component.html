@@ -1,20 +1,49 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<div style="padding-top: 30px;">
+  <div class="form_gen" style="">
+    <div class="form_gen_left">
+      <img src="http://yourstyle.com.pe/backend/uploads/register/img_register_1.png" alt="Generic placeholder thumbnail"/>
+    </div>
+    <div class="form_gen_right">
+      <div class="form_gen_right_top">
+        <img src="http://yourstyle.com.pe/backend/uploads/register/img_logo_main_1.png" alt="Generic placeholder thumbnail"/>
+      </div>
+      <div class="form_gen_right_body">
+        <form #formPerson="ngForm" (ngSubmit)="onSubmit(); formPerson.reset();" class="" id="form-person">
+          <div align="center" style="height: 0px;padding-top: 3px;">
+            <b>SUSCRIPCIÓN</b>
+          </div>
+          <br/>
+          <div style="text-align: left;">
+            <label></label>
+            Nombres *<span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+            <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="person.first_name" class="form-control" placeholder="Nombres" required />
 
+            <label></label>
+            Apellidos *<span *ngIf="!apellido.valid && apellido.touched" class="label label-danger">El apellido es obligatorio</span>
+            <input type="text" #apellido="ngModel" name="apellido" [(ngModel)]="person.last_name" class="form-control" placeholder="Apellidos" required />
+
+            <label></label>
+            DNI *<span *ngIf="!dni.valid && dni.touched" class="label label-danger">El DNI es obligatorio</span>
+            <input type="number" #dni="ngModel" name="dni" [(ngModel)]="person.dni" class="form-control" placeholder="DNI" required pattern=".{8}"/>
+
+            <label></label>
+            Fecha de Nacimiento
+            <input type="date" #fechaNacimiento="ngModel" name="fechaNacimiento" [(ngModel)]="person.birth_date" class="form-control" placeholder="Fecha de Nacimiento"/>
+
+            <label></label>
+            Correo *<span *ngIf="!correo.valid && correo.touched" class="label label-danger">Ingresar el correo correctamente</span>
+            <input type="text" #correo="ngModel" name="correos" [(ngModel)]="person.email" class="form-control" placeholder="Correo" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" style="text-transform: lowercase;"/>
+
+            <label></label>
+            Celular
+            <input type="number" #celular="ngModel" name="celular" [(ngModel)]="person.cell_phone" class="form-control" placeholder="Celular" pattern=".{9}"/>
+          </div>
+          <input type="submit" value="Registrar" [disabled]="!formPerson.form.valid" class="btn btn-success" style="width:100%;background-color:black"/>
+        </form>
+      </div>
+      <div style="text-align: left;font-size: small;">
+        * Datos Obligatorios<span class="label label-danger">{{message}}</span>
+      </div>
+    </div>
+  </div>
+</div>
