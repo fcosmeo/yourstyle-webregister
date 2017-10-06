@@ -15,6 +15,9 @@ body{
     height: 484px;
     width: 700px;
     border-style: solid;
+    box-shadow: 2px 4px 5px 0px darkgrey;
+    -webkit-box-shadow: 2px 4px 5px 0px darkgrey;
+    -moz-box-shadow: 2px 4px 5px 0px darkgrey;
 }
 
 .form_gen_left{

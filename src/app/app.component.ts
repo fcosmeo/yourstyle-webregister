@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { PersonService } from './services/person.service';
 import { Person } from './models/person';
@@ -10,7 +10,7 @@ import { GLOBAL } from './services/global';
   styleUrls: ['./app.component.css'],
   providers: [PersonService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   public title: string;
   public person: Person;
   public message: string;
