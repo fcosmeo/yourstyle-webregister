@@ -1,3 +1,6 @@
+<div class="alert-container" [style.left]="getLeft()" [style.right]="getRight()">
+  <nac-alert-center [animation]="animation" [htmlTextEnabled]="htmlTextEnabled"></nac-alert-center>
+</div>
 <div style="padding-top: 30px;">
   <div class="form_gen" style="">
     <div class="form_gen_left">
@@ -42,7 +45,7 @@
         </form>
       </div>
       <div style="text-align: left;font-size: 10px;">
-        * Datos Obligatorios<span class="label label-danger" style="font-size: 10px;" >{{message}}</span>
+        * Datos Obligatorios
       </div>
     </div>
   </div>

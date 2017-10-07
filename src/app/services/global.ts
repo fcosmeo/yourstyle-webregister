@@ -1,4 +1,4 @@
 export var GLOBAL = {
-  url : 'http://yourstyle.com.pe/backend/index.php/'
+  url : 'https://www.yourstyle.com.pe/backend/index.php/'
 };
 
