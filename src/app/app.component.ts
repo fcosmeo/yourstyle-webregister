@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertCenterService} from './modules';
-import {AlertType} from './modules';
-import {Alert} from './modules';
+import {AlertCenterService} from 'ng2-alert-center';
+import {AlertType} from 'ng2-alert-center';
+import {Alert} from 'ng2-alert-center';
 
 import { PersonService } from './services/person.service';
 import { Person } from './models/person';
@@ -16,17 +16,10 @@ import { GLOBAL } from './services/global';
 export class AppComponent implements OnInit  {
   public title: string;
   public person: Person;
-  public message: string;
 
-  alert: Alert = new Alert (
-    AlertType.SUCCESS,
-    '',
-    '',
-    1000
-  );
+  alert: Alert = new Alert (AlertType.SUCCESS, '', '', 2500);
 
   animation = 'fancy';
-  align = 1;
   htmlTextEnabled = false;
 
   constructor(
@@ -41,7 +34,7 @@ export class AppComponent implements OnInit  {
   }
 
   onSubmit() {
-    console.log(this.person);
+    /*console.log(this.person);*/
     this.saveProducto();
   }
 
@@ -49,74 +42,29 @@ export class AppComponent implements OnInit  {
     this._personService.addPerson(this.person).subscribe(
       response => {
         if (response.code == 200) {
-          this.message = response.message;
           this.person = new Person(0, '', '', '', null, '', '', 1);
-          console.log(response);
+          /*console.log(response);*/
 
           if (response.message == 'La Persona se ha creado correctamente') {
-            this.alert.alertType = 0;
-            this.alert.textStrong = 'Suscripción: ';
-            this.alert.text = response.message;
-            this.alert.autoDismissTime = 2500;
-            this.alert.dismissable = true;
-            this.sendAlert();
+            this.sendAlert(0, 'Registro Exitoso', 'Suscripción: ', 2500, true);
           }else {
-            this.alert.alertType = 2;
-            this.alert.textStrong = 'Suscripción: ';
-            this.alert.text = response.message;
-            this.alert.autoDismissTime = 2500;
-            this.alert.dismissable = true;
-            this.sendAlert();
+            this.sendAlert(2, response.message, 'Suscripción: ', 2500, true);
           }
 
         }else {
           console.log(response);
-          this.message = response.message;
-
-          this.alert.alertType = 3;
-          this.alert.text = 'Suscripción';
-          this.alert.textStrong = response.message;
-          this.alert.autoDismissTime = 1000;
-          this.alert.dismissable = true;
-          this.sendAlert();
+          this.sendAlert(3, response.message, 'Suscripción: ', 2500, true);
         }
       },
       error => {
         console.log(<any>error);
+        this.sendAlert(3, <any>error, 'Suscripción: ', 2500, true);
       }
     );
   }
 
-  sendAlert() {
-    this.alert = new Alert (
-      this.alert.alertType,
-      this.alert.text,
-      this.alert.textStrong,
-      this.alert.autoDismissTime,
-      this.alert.dismissable
-    );
+  sendAlert(alertType, text, textStrong, autoDismissTime, dismissable) {
+    this.alert = new Alert ( alertType, text, textStrong, autoDismissTime, dismissable);
     this.alertCenterService.alert(this.alert);
-  }
-
-  getLeft() {
-    switch (this.align) {
-      case 0:
-        return '0';
-      case 1:
-        return '20%';
-      case 2:
-        return '60%';
-    }
-  }
-
-  getRight() {
-    switch (this.align) {
-      case 0:
-        return '60%';
-      case 1:
-        return '20%';
-      case 2:
-        return '0';
-    }
   }
 }
