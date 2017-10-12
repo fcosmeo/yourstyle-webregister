@@ -19,7 +19,7 @@
           <div style="text-align: left;">
             <label></label>
             Correo * <span *ngIf="!correo.valid && correo.touched" class="badge badge-danger">Ingresar el correo correctamente</span>
-            <input type="text" #correo="ngModel" name="correos" [(ngModel)]="person.email" class="form-control" placeholder="Correo" required style="text-transform: lowercase;"/>
+            <input type="text" #correo="ngModel" name="correos" [(ngModel)]="person.email" class="form-control" placeholder="Correo" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" style="text-transform: lowercase;"/>
 
             <label></label>
             Nombres
