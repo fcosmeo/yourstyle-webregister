@@ -18,7 +18,7 @@
           <br/>
           <div style="text-align: left;">
             <label></label>
-            Correo *<span *ngIf="!correo.valid && correo.touched" class="label label-danger">Ingresar el correo correctamente</span>
+            Correo * <span *ngIf="!correo.valid && correo.touched" class="badge badge-danger">Ingresar el correo correctamente</span>
             <input type="text" #correo="ngModel" name="correos" [(ngModel)]="person.email" class="form-control" placeholder="Correo" required style="text-transform: lowercase;"/>
 
             <label></label>
@@ -36,7 +36,8 @@
 
             <label></label>
             Fecha de Nacimiento
-            <input type="date" #fechaNacimiento="ngModel" name="fechaNacimiento" [(ngModel)]="person.birth_date" class="form-control" placeholder="Fecha de Nacimiento"/>
+            <input type="text" #fechaNacimiento="ngModel" name="fechaNacimiento" [(ngModel)]="person.birth_date" class="form-control" placeholder="Fecha de Nacimiento" data-toggle="datepicker"/>
+            <!--<input type="date" #fechaNacimiento="ngModel" name="fechaNacimiento" [(ngModel)]="person.birth_date" class="form-control" placeholder="Fecha de Nacimiento"/>-->
 
             <!--<label></label>-->
             <!--Correo *<span *ngIf="!correo.valid && correo.touched" class="label label-danger">Ingresar el correo correctamente</span>-->
@@ -53,6 +54,7 @@
       <div style="text-align: left;font-size: 10px;">
         * Datos Obligatorios
       </div>
+
     </div>
   </div>
 </div>

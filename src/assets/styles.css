@@ -20,7 +20,7 @@ body{
     border-radius: 20px;
     background-color:white;
     border-color:darkgrey;
-    height: 484px;
+    height: 540px;
     width: 700px;
     border-style: solid;
     box-shadow: 2px 4px 5px 0px darkgrey;
@@ -31,9 +31,9 @@ body{
 .form_gen_left{
     overflow: hidden;
     float: left;
-    height: 478px;
+    height: 536px;
     width: 347px;
-    background-color: darkgreen;
+    background-color: white;
 }
 
 .form_gen_right{
@@ -81,7 +81,7 @@ body{
         border-radius: 20px;
         background-color:white;
         border-color:darkgrey;
-        height: 484px;
+        height: 540px;
         width: 350px;
         border-style: solid;
     }
